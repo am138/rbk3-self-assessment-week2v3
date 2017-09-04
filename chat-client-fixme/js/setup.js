@@ -104,6 +104,9 @@ var displayData = function(data, user) {
   });
 };
 
+// this function responsible for sending messages to the server
+//the claim is to send the username & message to the server 
+
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,
@@ -115,9 +118,12 @@ var postData = function(message, username) {
     }),
     success: function(data) {
       console.log('Success!', data);
+      // this is a message to know if the message successfully sent to sever or not.
+      alert("server successfully received message")
     },
     error: function(data) {
       console.log(data);
+      alert("server scan't received the message !! TRY AGAIN")
     }
   });
 };
