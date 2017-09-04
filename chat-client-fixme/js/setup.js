@@ -116,7 +116,7 @@ var postData = function(message, username) {
       text: message
     }),
     success: function(data,event) {
-      app.displayData(data,username);
+      displayData(data,username);
       event.preventDefault();
     },
     error: function(data) {
