@@ -39,3 +39,39 @@ var makeSmartPhone = function(phoneNumber, email) {
 };
 
 // your code is here
+
+
+var Phone = function(phoneNumber) {
+this.phoneNumber = phoneNumber;
+};
+
+
+Phone.prototype.send = function(recipientPhoneNumber, message) {
+    return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
+  };
+
+
+
+var SmartPhone = function(phoneNumber, email) {
+  Phone.call(this,phoneNumber)
+    
+  this.oldSend = this.send;
+
+  this.email = email;
+  
+};
+
+SmartPhone.prototype = Object.create(Phone.prototype)
+SmartPhone.prototype.constructor = SmartPhone;
+
+SmartPhone.prototype.send = function(recipientPhoneNumberOrEmail, message) {
+    if (typeof recipientPhoneNumberOrEmail === 'number') {
+      // We need `.call` here to make sure that `this` will reference our smart phone in makePhone's send
+      return oldSend.call(this, recipientPhoneNumberOrEmail, message);
+    } else {
+      return 'sending the message "' + message + '" to email ' + recipientPhoneNumberOrEmail + ' from ' + this.email;
+    }
+  };
+
+
+
