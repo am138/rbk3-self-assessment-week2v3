@@ -2,9 +2,9 @@
   Write your explanation here as a comment.
   For example, you might say...
     -This function has [insert time complexity], because [some line of code] means [something describing the nature of the implementation]
-    Problem 1:this function [Bigo(1)]because [ var retrieve = function(key) eturn array[hash]; ] means [we inter one vlue and we want one value]
-    problem2:this function [Bigo(n)]because [we have recursion ]
-    problem3:this function[Bigo(n)]because[we have for loop to etterate on each item]
+    Problem 1:this function [Bigo(n^2)]because [Math.pow(i, hash)] means [we have eterate by for loop for each item and change the output by math pow for each item]
+    problem2:this function [Bigo(n)]because [we have recursion  and output has changed by recurion ]
+    problem3:this function[Bigo(1)]because[the out just true or false we didn't change anything in output]
 */
 
 /* */
@@ -26,7 +26,7 @@ var retrieve = function(key) {
 // Problem 2: sortedArrayContainsItem with regard to the length of the passed-in array
 
 /*
- Complexity:Bigo(n)
+ Complexity:
  */
 
 
