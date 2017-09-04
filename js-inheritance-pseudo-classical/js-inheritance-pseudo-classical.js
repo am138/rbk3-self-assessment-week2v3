@@ -48,14 +48,14 @@ var Phone = function(phoneNumber) {
 };
 
 var SmartPhone = function(phoneNumber, email) {
-  makePhone.call(this, phoneNumber);
+  Phone.call(this, phoneNumber);
   var oldSend = this.send;
   this.email = email;
 };
-makeSmartPhone.prototype = Object.create(makePhone.prototype);
-makeSmartPhone.prototype.constructor = makeSmartPhone; 
+SmartPhone.prototype = Object.create(Phone.prototype);
+SmartPhone.prototype.constructor = SmartPhone; 
 
-makeSmartPhone.prototype.send = function(recipientPhoneNumberOrEmail, message) {
+SmartPhone.prototype.send = function(recipientPhoneNumberOrEmail, message) {
   console.log(typeof recipientPhoneNumberOrEmail)
     if (typeof recipientPhoneNumberOrEmail === 'number') {
       return oldSend.call(this, recipientPhoneNumberOrEmail, message);
