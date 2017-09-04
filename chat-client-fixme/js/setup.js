@@ -9,11 +9,16 @@ $.ajaxPrefilter(function(settings, _, jqXHR) {
 var SERVER_URL = 'http://parse.shared.hackreactor.com/chatterbox/classes/messages';
 
 //This one calls the Parse server to grab data, and sends it to processData
+// this function responce server to make process and send to client
 var getData = function() {
   $.ajax(SERVER_URL + '?order=-createdAt', {
     contentType: 'application/json',
     success: function(data) {
-      processData(data); // eslint-disable-line no-use-before-define
+      // processData(data); // eslint-disable-line no-use-before-define
+      if(!data.result||!data.result.length){return}
+        // it is give last data and compare with new if it is not same it store the new
+
+
     },
     error: function(data) {
       $('#error').prepend(' oh no').append('!');
@@ -103,7 +108,7 @@ var displayData = function(data, user) {
     getData();
   });
 };
-
+// this methoed need to send post (message) to the server" 
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,
@@ -113,6 +118,7 @@ var postData = function(message, username) {
       username: username,
       text: message
     }),
+    // this methoed apply if we need to made refresh
     success: function(data) {
       console.log('Success!', data);
     },

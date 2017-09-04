@@ -37,5 +37,43 @@ var makeSmartPhone = function(phoneNumber, email) {
 
   return phone;
 };
+//////////////////////////////////
 
 // your code is here
+// this is superclass 
+
+var Phone = function(phoneNumber) {
+this.phoneNumber = phoneNumber;
+this._ message=message;
+this._recipientPhoneNumber=recipientPhoneNumber;
+
+}
+Phone.prototype.send = function(recipientPhoneNumber, message) {
+    return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
+  };
+//////////////////////////////
+// the subclass
+var SmartPhone = function(phoneNumber, email) {
+  // var phone = makePhone(phoneNumber);
+  Phone.call(this,phoneNumber,email);
+  // var oldSend = phone.send;
+  this.send();
+
+  this.email = email;
+  SmartPhone.prototype=Object.create(Phone.prototype);
+  SmartPhone.prototype.constructor=SmartPhone
+  };
+
+  phone.prototype.send = function(recipientPhoneNumberOrEmail, message) {
+    if (typeof recipientPhoneNumberOrEmail === 'number') {
+      // We need `.call` here to make sure that `this` will reference our smart phone in makePhone's send
+      // return oldSend.call(this, recipientPhoneNumberOrEmail, message);
+      phone.prototype.send.call(this,recipientPhoneNumberOrEmail,message)
+    } else {
+      return 'sending the message "' + message + '" to email ' + recipientPhoneNumberOrEmail + ' from ' + this.email;
+    }
+  };
+
+  // return phone;
+
+
