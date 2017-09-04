@@ -115,6 +115,9 @@ var postData = function(message, username) {
     }),
     success: function(data) {
       console.log('Success!', data);
+      
+       window.alert("success send data to server");
+     
     },
     error: function(data) {
       console.log(data);
