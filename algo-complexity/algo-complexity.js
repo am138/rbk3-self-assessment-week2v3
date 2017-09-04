@@ -11,6 +11,8 @@
  Complexity:
  */
 
+O(n) leniar 
+
 var retrieve = function(key) {
   var hash = 0;
   for (var i = 0; i < key.length; i++) {
@@ -25,6 +27,7 @@ var retrieve = function(key) {
 /*
  Complexity:
  */
+ O(n^2)
 
 
 var sortedArrayContainsItem = function(array, item) {
@@ -41,7 +44,7 @@ var sortedArrayContainsItem = function(array, item) {
 
 /*
  Complexity:
- */
+ */ O(n^2)
 
 var hasDuplicates = function(array) {
   for (var i = 0; i < array.length; i++) {
