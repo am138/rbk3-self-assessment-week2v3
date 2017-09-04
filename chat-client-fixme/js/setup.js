@@ -121,3 +121,6 @@ var postData = function(message, username) {
     }
   });
 };
+var sendMessage(message,username){
+postData(message, username);
+}
