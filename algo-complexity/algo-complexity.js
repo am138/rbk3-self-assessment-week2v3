@@ -3,7 +3,9 @@
   For example, you might say...
     -This function has [insert time complexity], because [some line of code] means [something describing the nature of the implementation]
 */
-
+//1- we have to return the result of power problem using hash table function 
+//2- whe have to search for item and sorted them using the binary tree function
+//3- whe have to find the duplicated item in the array using the for loop and the if condition
 
 // Problem 1: Retrieval of a value from a hash table using the following function with regard to the size of the hash table. knowing that the key never get very large
 
