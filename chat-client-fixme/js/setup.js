@@ -103,7 +103,7 @@ var displayData = function(data, user) {
     getData();
   });
 };
-
+// this is the function responsible for sending messages to the server
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,
@@ -114,6 +114,7 @@ var postData = function(message, username) {
       text: message
     }),
     success: function(data) {
+      //success function here, should
       console.log('Success!', data);
     },
     error: function(data) {
