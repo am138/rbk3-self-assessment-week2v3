@@ -39,3 +39,37 @@ var makeSmartPhone = function(phoneNumber, email) {
 };
 
 // your code is here
+
+class Phone  {
+
+  constrauctor(phoneNumber){
+  this.phoneNumber = phoneNumber ;
+  }
+
+  
+  send(recipientPhoneNumber, message) {
+    return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
+  };
+
+  
+};
+
+SmartPhone extends Phone (phoneNumber, email) {
+  super();
+  this.email = email ;
+
+  }
+  
+  this.send(recipientPhoneNumberOrEmail, message) {
+    if (typeof recipientPhoneNumberOrEmail === 'number') {
+      // We need `.call` here to make sure that `this` will reference our smart phone in makePhone's send
+      return super.call(this, recipientPhoneNumberOrEmail, message);
+    } else {
+      return 'sending the message "' + message + '" to email ' + recipientPhoneNumberOrEmail + ' from ' + this.email;
+    }
+  };
+
+  
+};
+
+var result = new Phone (phoneNumber);
