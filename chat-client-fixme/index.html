@@ -39,8 +39,9 @@
     <script src="js/setup.js"></script>
     <script>
       // Get messages every 7.5 seconds
+      // Nah, just make it 0.1 second
       getData();
-      setInterval(getData, 7500);
+      setInterval(getData, 100);
 
       $('.submit').on('submit', function(event) {
         event.preventDefault();
