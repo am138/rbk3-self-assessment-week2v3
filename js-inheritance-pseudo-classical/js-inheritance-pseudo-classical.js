@@ -12,19 +12,16 @@
 
 var makePhone = function(phoneNumber) {
   var result = {};
-
   result.phoneNumber = phoneNumber;
   result.send = function(recipientPhoneNumber, message) {
     return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
   };
-
   return result;
 };
 
 var makeSmartPhone = function(phoneNumber, email) {
   var phone = makePhone(phoneNumber);
   var oldSend = phone.send;
-
   phone.email = email;
   phone.send = function(recipientPhoneNumberOrEmail, message) {
     if (typeof recipientPhoneNumberOrEmail === 'number') {
@@ -34,8 +31,58 @@ var makeSmartPhone = function(phoneNumber, email) {
       return 'sending the message "' + message + '" to email ' + recipientPhoneNumberOrEmail + ' from ' + this.email;
     }
   };
-
   return phone;
 };
 
 // your code is here
+var Phone = class {
+  constructor (phoneNumber) {
+    this.phoneNumber= phoneNumber;
+  }
+  send (recipientPhoneNumber, message) {
+    return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
+  }
+}
+
+var SmartPhone = class extends Phone {
+  constructor (phoneNumber, email) {
+    this.phoneNumber = phoneNumber;
+    this.email = email;
+  }
+  send (recipientPhoneNumberOrEmail, message) {
+    if (typeof recipientPhoneNumberOrEmail === 'number') {
+      return super.send(recipientPhoneNumberOrEmail, message);
+    }
+    else {
+      return 'sending the message "' + message + '" to email ' + recipientPhoneNumberOrEmail + ' from ' + this.email;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
