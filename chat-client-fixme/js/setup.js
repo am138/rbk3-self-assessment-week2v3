@@ -110,6 +110,7 @@ var displayData = function(data, user) {
 
 var postData = function(message, username) {
   // THIS IS THE FUNCTION USED TO SEND A MASSEGE TO THE SERVER IN REQUEST BODY
+  
   // // $.ajax({
   // //   url: SERVER_URL,
   // //   contentType: 'application/json',
