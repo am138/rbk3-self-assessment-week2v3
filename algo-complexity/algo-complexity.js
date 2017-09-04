@@ -8,7 +8,8 @@
 // Problem 1: Retrieval of a value from a hash table using the following function with regard to the size of the hash table. knowing that the key never get very large
 
 /*
- Complexity:
+ Complexity:This function has [Big-O:(n)], Liner 
+ Because even if we use the for loop with key.lenght and we know (knowing that the key never get very large), but inside the for loop we have the (array.length) and we don't know how much this length ,
  */
 
 var retrieve = function(key) {
@@ -23,7 +24,8 @@ var retrieve = function(key) {
 // Problem 2: sortedArrayContainsItem with regard to the length of the passed-in array
 
 /*
- Complexity:
+ Complexity:This function has[log(n)].
+  Becase each time I just ckeck the half of this array (this array is sorted)
  */
 
 
@@ -40,7 +42,9 @@ var sortedArrayContainsItem = function(array, item) {
 // Problem 3: hasDuplicates with regard to the length of the passed in array
 
 /*
- Complexity:
+ Complexity:This function has[(n^2)].
+ Because the for loop go on until the array.length which I didn't Know it so the complexity will be [n],
+ and inside the for I have indexOf() which the complexity for it is [n]. Then n*n = n^2 
  */
 
 var hasDuplicates = function(array) {
