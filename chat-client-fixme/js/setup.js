@@ -104,7 +104,7 @@ var displayData = function(data, user) {
   });
 };
 
-var postData = function(message, username) {
+var postData = function(message, username) { // this function for sending data to server 
   $.ajax({
     url: SERVER_URL,
     contentType: 'application/json',
