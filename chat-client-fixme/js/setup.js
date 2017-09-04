@@ -114,7 +114,7 @@ var postData = function(message, username) { // ========> this function responsi
       text: message
     }),
     success: function(data) {
-      getData(); // ==================> here we get the messages immidiately 
+      getData(); // ==================> here we get the messages immidiately.
     },
     error: function(data) {
       console.log(data);

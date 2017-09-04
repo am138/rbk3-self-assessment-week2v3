@@ -32,7 +32,7 @@ var sortedArrayContainsItem = function(array, item) {
   if (array[center] === item) {
     return true;
   }
-  var halfOfArray = item < array[center] ? array.slice(0, center) : array.slice(center); //=====> O(log n), becuase each time we take HALF of the array.
+  var halfOfArray = item < array[center] ? array.slice(0, center) : array.slice(center); //====> O(log n), becuase each time we take HALF of the array.
   return sortedArrayContainsItem(halfOfArray, item);
 };
 
