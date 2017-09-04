@@ -9,6 +9,7 @@
 
 /*
  Complexity:
+ // This function has [O(1)], because [for (key.length never getting large] means [no considerable iterating loops over an array which is key array input in this case]
  */
 
 var retrieve = function(key) {
@@ -19,11 +20,11 @@ var retrieve = function(key) {
   return array[hash];
 };
 
-
 // Problem 2: sortedArrayContainsItem with regard to the length of the passed-in array
 
 /*
  Complexity:
+ // This function has [O(log n)], because [item < array[center] ? array.slice(0, center) : array.slice(center);] means [each time I divide the search scope to half of the previous epoch]
  */
 
 
@@ -40,7 +41,7 @@ var sortedArrayContainsItem = function(array, item) {
 // Problem 3: hasDuplicates with regard to the length of the passed in array
 
 /*
- Complexity:
+ Complexity: This function has [O(n^2)], because [for (var i = 0; i < array.length; i++)] and [itereating over two similar array (original and sliced one)]
  */
 
 var hasDuplicates = function(array) {
