@@ -104,7 +104,7 @@ var displayData = function(data, user) {
   });
 };
 
-// this function responsible for sending messages to the server
+// postData responsible for sending messages to the server
 //the claim is to send the username & message to the server 
 
 var postData = function(message, username) {
