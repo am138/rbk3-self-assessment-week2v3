@@ -18,6 +18,9 @@ var retrieve = function(key) {
   }
   return array[hash];
 };
+/* 
+This function has a O(1) complexity, because the for loop is just hashing the key, then we will retrieve the value of the key in constant time.
+*/
 
 
 // Problem 2: sortedArrayContainsItem with regard to the length of the passed-in array
@@ -36,6 +39,10 @@ var sortedArrayContainsItem = function(array, item) {
   return sortedArrayContainsItem(halfOfArray, item);
 };
 
+/* 
+This function has a O(log(n)) complexity, because it's only searching in a part of the array not every item in it.
+*/
+
 
 // Problem 3: hasDuplicates with regard to the length of the passed in array
 
@@ -52,3 +59,7 @@ var hasDuplicates = function(array) {
   }
   return false;
 };
+
+/*
+This function has a O(n) complexity, because it iterate throghu the whole array to see if there's any dublicate
+*/
