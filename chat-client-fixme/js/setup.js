@@ -51,6 +51,25 @@ var userSelectedGroup = {};
 var newestDate = new Date();
 var userSelected;
 
+var displayMessage = function(message) {
+  newestDate = new Date(message[0].createdAt);
+
+  if (user === message[i].username || !user) {
+    var timestamp = moment(message[i].createdAt).format('h:mm:ss a');
+    var $result = $('<li></li>').attr('data-username', message[i].username);
+    var $message = $('<p></p>').text(message[i].text);
+    var $userName = $('<a></a>').text(message[i].username).addClass('onlyUser');
+    var $likeUser = $('<a></a>').addClass('addUser').text(': ');
+    var $timeStamp = $('<span></span>').text(timestamp);
+     if (userSelectedGroup[message[i].username]) {
+      $message.addClass('highlight');
+    }
+    $result.html([$userName, $timeStamp, $likeUser, $message]);
+    $results.push($result);
+    resultCount++;
+  }  
+}
+
 var displayData = function(data, user) {
   var $results = [];
   var resultCount = 0;
@@ -58,24 +77,7 @@ var displayData = function(data, user) {
   var i = 0;
   while (resultCount < 10 && i < data.results.length) {
 
-    newestDate = new Date(data.results[0].createdAt);
-
-    if (user === data.results[i].username || !user) {
-      var timestamp = moment(data.results[i].createdAt).format('h:mm:ss a');
-      var $result = $('<li></li>').attr('data-username', data.results[i].username);
-      var $message = $('<p></p>').text(data.results[i].text);
-      var $userName = $('<a></a>').text(data.results[i].username).addClass('onlyUser');
-      var $likeUser = $('<a></a>').addClass('addUser').text(': ');
-      var $timeStamp = $('<span></span>').text(timestamp);
-
-      if (userSelectedGroup[data.results[i].username]) {
-        $message.addClass('highlight');
-      }
-
-      $result.html([$userName, $timeStamp, $likeUser, $message]);
-      $results.push($result);
-      resultCount++;
-    }
+    
     i++;
   }
 
@@ -103,7 +105,7 @@ var displayData = function(data, user) {
     getData();
   });
 };
-
+//send data to the server 
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,
@@ -115,6 +117,7 @@ var postData = function(message, username) {
     }),
     success: function(data) {
       console.log('Success!', data);
+      displayMessage(message);
     },
     error: function(data) {
       console.log(data);
