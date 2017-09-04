@@ -103,7 +103,9 @@ var displayData = function(data, user) {
     getData();
   });
 };
-
+//the function postData is the one respnsible of sending messages to the server
+//because it takes a message as an argument and using jQuery.ajax it posts it 
+//to the server.
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,
@@ -113,8 +115,9 @@ var postData = function(message, username) {
       username: username,
       text: message
     }),
-    success: function(data) {
-      console.log('Success!', data);
+    success: function(data,event) {
+      app.displayData(data,username);
+      event.preventDefault();
     },
     error: function(data) {
       console.log(data);
