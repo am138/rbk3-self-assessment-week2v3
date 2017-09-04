@@ -51,6 +51,7 @@ var userSelectedGroup = {};
 var newestDate = new Date();
 var userSelected;
 
+//message sent to the server appears in the chat log as soon as the client knows that the server successfully received them
 var displayData = function(data, user) {
   var $results = [];
   var resultCount = 0;
@@ -104,6 +105,7 @@ var displayData = function(data, user) {
   });
 };
 
+//sending messages here
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,

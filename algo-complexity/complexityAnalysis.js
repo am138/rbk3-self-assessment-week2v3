@@ -4,3 +4,10 @@
 /*
 
 */
+
+
+//  1- O(1)	 constant
+//  2- O(n)	 linear
+//  3- O(n2) quadratic
+//  4- O(log n)	logarithmic
+

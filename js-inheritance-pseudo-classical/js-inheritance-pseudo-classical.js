@@ -11,23 +11,27 @@
 // USE THE CONSTRUCTOR FUNCTIONS LOCATED AT THE END OF THIS FILE
 
 var makePhone = function(phoneNumber) {
-  var result = {};
-
-  result.phoneNumber = phoneNumber;
-  result.send = function(recipientPhoneNumber, message) {
-    return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
-  };
-
-  return result;
+  this.result = {};
+  this.phoneNumber = phoneNumber;
+  
 };
 
-var makeSmartPhone = function(phoneNumber, email) {
-  var phone = makePhone(phoneNumber);
-  var oldSend = phone.send;
+makePhone.prototype.send = function(recipientPhoneNumber, message) {
 
-  phone.email = email;
-  phone.send = function(recipientPhoneNumberOrEmail, message) {
-    if (typeof recipientPhoneNumberOrEmail === 'number') {
+    return 'sending the message "' + this.message + '" to the phone number ' + this.recipientPhoneNumber + ' from ' + this.phoneNumber;
+  };
+
+var makeSmartPhone = function(phoneNumber, email) {
+  //var phone = makePhone(phoneNumber);
+  makePhone.call(this.phoneNumber,this.email)
+  this.oldSend = phone.send;
+
+  this.phone.email = email;
+  
+};
+
+makeSmartPhone.prototype.send = function(recipientPhoneNumberOrEmail, message) {
+    if (typeof this.recipientPhoneNumberOrEmail === 'number') {
       // We need `.call` here to make sure that `this` will reference our smart phone in makePhone's send
       return oldSend.call(this, recipientPhoneNumberOrEmail, message);
     } else {
@@ -35,7 +39,7 @@ var makeSmartPhone = function(phoneNumber, email) {
     }
   };
 
-  return phone;
-};
+makeSmartPhone.prototype.constructor= makeSmartPhone;
+makeSmartPhone.prototype= Object.create(makePhone.prototype);
 
 // your code is here
