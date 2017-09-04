@@ -6,7 +6,7 @@
 
 
 // Problem 1: Retrieval of a value from a hash table using the following function with regard to the size of the hash table. knowing that the key never get very large
-
+//-This function has [O(n)], because [ for (var i = 0; i < key.length; i++) {] means [it will lop in all element in array]
 /*
  Complexity:
  */
@@ -21,6 +21,7 @@ var retrieve = function(key) {
 
 
 // Problem 2: sortedArrayContainsItem with regard to the length of the passed-in array
+//-This function has [O(n)], because [no loop no recarsive ]
 
 /*
  Complexity:
@@ -38,6 +39,7 @@ var sortedArrayContainsItem = function(array, item) {
 
 
 // Problem 3: hasDuplicates with regard to the length of the passed in array
+//-This function has [O(n)], because [ for (var i = 0; i < array.length; i++) {] means [it will lop in all element in array]
 
 /*
  Complexity:
