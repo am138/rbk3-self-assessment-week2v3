@@ -9,6 +9,7 @@
 
 /*
  Complexity:
+ this function has [O(n)], because it has a for loop that will iterate on the key size, we can consider it O(1) if the key never gets very large as you mintioned above.
  */
 
 var retrieve = function(key) {
@@ -24,6 +25,7 @@ var retrieve = function(key) {
 
 /*
  Complexity:
+ this function has [O(log n)], because every time it takes half of the array until it findes its target.
  */
 
 
@@ -41,6 +43,7 @@ var sortedArrayContainsItem = function(array, item) {
 
 /*
  Complexity:
+ this function has [O(n)], although it takes constant time if it has a duplicate but the worst case is when there is no duplicate it will iterate the whole array size.
  */
 
 var hasDuplicates = function(array) {
