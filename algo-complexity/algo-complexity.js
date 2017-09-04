@@ -8,7 +8,7 @@
 // Problem 1: Retrieval of a value from a hash table using the following function with regard to the size of the hash table. knowing that the key never get very large
 
 /*
- Complexity:
+ Complexity: o(n) / linear time complexity / coz of the for loop 
  */
 
 var retrieve = function(key) {
@@ -23,7 +23,7 @@ var retrieve = function(key) {
 // Problem 2: sortedArrayContainsItem with regard to the length of the passed-in array
 
 /*
- Complexity:
+ Complexity: o(n2) / linear time complexity / recursive + slice  
  */
 
 
@@ -40,7 +40,7 @@ var sortedArrayContainsItem = function(array, item) {
 // Problem 3: hasDuplicates with regard to the length of the passed in array
 
 /*
- Complexity:
+ Complexity: o(n2) / linear time complexity / for loop + slice or the second index 
  */
 
 var hasDuplicates = function(array) {

@@ -39,3 +39,43 @@ var makeSmartPhone = function(phoneNumber, email) {
 };
 
 // your code is here
+///////////////////////////////////////
+
+var Make = function (phoneNumber) {
+    this.phoneNumber = phoneNumber;
+//    this.send = function(recipientPhoneNumber,message){
+//  return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;  
+}
+};
+
+Make.prototype.send = function(recipientPhoneNumber,message){
+  return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;  
+}
+/////////////////////////////////////////////////////
+
+var MakePhone = function (phoneNumber) {
+    Make.call(this,phoneNumber)
+}
+
+MakePhone.prototype.send = function(recipientPhoneNumber,message){
+   return Make.send.call(this,recipientPhoneNumber,message)
+}
+
+MakePhone.prototype = Object.create(Make.prototype)
+MakePhone.prototype.constructor = MakePhone
+
+////////////////////////////////////////////////////////
+var MakeSmartPhone = function (phoneNumber, email){
+    Make.call(this,phoneNumber)
+    this.email = email;
+}
+MakeSmartPhone.prototype.send = function(recipientPhoneNumberOrEmail, message){
+   if (typeof recipientPhoneNumberOrEmail === 'number') {
+     return Make.send.call(this,recipientPhoneNumber,message)  
+   }
+   return 'sending the message "' + message + '" to email ' + recipientPhoneNumberOrEmail + ' from ' + this.email;
+}
+
+
+MakeSmartPhone.prototype = Object.create(Make.prototype)
+MakeSmartPhone.prototype.constructor =MakeSmartPhone
