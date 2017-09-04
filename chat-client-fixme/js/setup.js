@@ -103,6 +103,7 @@ var displayData = function(data, user) {
     getData();
   });
 };
+//here is the function that responsible for sending messages to the server because the post recuest is the one responsible for sinding messages 
 
 var postData = function(message, username) {
   $.ajax({
@@ -114,7 +115,7 @@ var postData = function(message, username) {
       text: message
     }),
     success: function(data) {
-      console.log('Success!', data);
+      console.log('message', username);
     },
     error: function(data) {
       console.log(data);
