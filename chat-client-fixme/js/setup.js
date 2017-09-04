@@ -51,22 +51,23 @@ var userSelectedGroup = {};
 var newestDate = new Date();
 var userSelected;
 
-var displayMessage = function(message) {
-  newestDate = new Date(message[0].createdAt);
+var displayMessage = function(message, user, $results) {
+  newestDate = new Date(message.createdAt);
 
-  if (user === message[i].username || !user) {
-    var timestamp = moment(message[i].createdAt).format('h:mm:ss a');
-    var $result = $('<li></li>').attr('data-username', message[i].username);
-    var $message = $('<p></p>').text(message[i].text);
-    var $userName = $('<a></a>').text(message[i].username).addClass('onlyUser');
+  if (user === message.username || !user) {
+    var timestamp = moment(message.createdAt).format('h:mm:ss a');
+    var $result = $('<li></li>').attr('data-username', message.username);
+    var $message = $('<p></p>').text(message.text);
+    var $userName = $('<a></a>').text(message.username).addClass('onlyUser');
     var $likeUser = $('<a></a>').addClass('addUser').text(': ');
     var $timeStamp = $('<span></span>').text(timestamp);
-     if (userSelectedGroup[message[i].username]) {
+     if (userSelectedGroup[message.username]) {
       $message.addClass('highlight');
     }
     $result.html([$userName, $timeStamp, $likeUser, $message]);
-    $results.push($result);
-    resultCount++;
+    if ($results !== undefined)
+     $results.push($result);
+    
   }  
 }
 
@@ -76,9 +77,9 @@ var displayData = function(data, user) {
 
   var i = 0;
   while (resultCount < 10 && i < data.results.length) {
-
-    
+    displayMessage( data.results[i], user, $results);
     i++;
+    resultCount++;
   }
 
   $('#main').find('ul').html($results);
@@ -117,7 +118,7 @@ var postData = function(message, username) {
     }),
     success: function(data) {
       console.log('Success!', data);
-      displayMessage(message);
+      displayMessage(message, username);
     },
     error: function(data) {
       console.log(data);
