@@ -39,3 +39,35 @@ var makeSmartPhone = function(phoneNumber, email) {
 };
 
 // your code is here
+
+var Phone = function(phoneNumber) {
+  this.phoneNumber = phoneNumber;
+  this.send = function(recipientPhoneNumber, message) {
+    return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
+  };
+};
+
+var SmartPhone = function(phoneNumber, email) {
+  makePhone.call(this, phoneNumber);
+  var oldSend = this.send;
+  this.email = email;
+};
+makeSmartPhone.prototype = Object.create(makePhone.prototype);
+makeSmartPhone.prototype.constructor = makeSmartPhone; 
+
+makeSmartPhone.prototype.send = function(recipientPhoneNumberOrEmail, message) {
+  console.log(typeof recipientPhoneNumberOrEmail)
+    if (typeof recipientPhoneNumberOrEmail === 'number') {
+      return oldSend.call(this, recipientPhoneNumberOrEmail, message);
+    } else {
+      return 'sending the message "' + message + '" to email ' + recipientPhoneNumberOrEmail + ' from ' + this.email;
+    }
+  };
+
+
+
+
+
+
+
+
