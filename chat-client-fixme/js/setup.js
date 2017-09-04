@@ -104,6 +104,8 @@ var displayData = function(data, user) {
   });
 };
 
+// this function below is responsible for sending messages, because the type of ajax request here is POST and 
+// data sent by this request looks like a message data.
 var postData = function(message, username) {
   $.ajax({
     url: SERVER_URL,
@@ -115,6 +117,7 @@ var postData = function(message, username) {
     }),
     success: function(data) {
       console.log('Success!', data);
+      displayData(data, username); //passing data and username to displayData function as called on line 37
     },
     error: function(data) {
       console.log(data);

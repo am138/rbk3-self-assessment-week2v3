@@ -39,3 +39,8 @@ var makeSmartPhone = function(phoneNumber, email) {
 };
 
 // your code is here
+
+function MakePhone (phoneNumber){
+  this.result = {};
+  this.result.phoneNumber = phoneNumber;
+}
