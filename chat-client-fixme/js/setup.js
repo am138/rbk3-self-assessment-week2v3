@@ -10,12 +10,16 @@ var SERVER_URL = 'http://parse.shared.hackreactor.com/chatterbox/classes/message
 
 //This one calls the Parse server to grab data, and sends it to processData
 var getData = function() {
-  $.ajax(SERVER_URL + '?order=-createdAt', {
-    contentType: 'application/json',
-    success: function(data) {
+  
+  $.ajax({ url:SERVER_URL ,
+  type: 'GET'
+  data: '?order=-createdAt', 
+  contentType: 'application/json'
+
+  success: function(data) {
       processData(data); // eslint-disable-line no-use-before-define
     },
-    error: function(data) {
+  error: function(data) {
       $('#error').prepend(' oh no').append('!');
     }
   });
@@ -105,19 +109,20 @@ var displayData = function(data, user) {
 };
 
 var postData = function(message, username) {
-  $.ajax({
-    url: SERVER_URL,
-    contentType: 'application/json',
-    type: 'POST',
-    data: JSON.stringify({
-      username: username,
-      text: message
-    }),
-    success: function(data) {
-      console.log('Success!', data);
-    },
-    error: function(data) {
-      console.log(data);
-    }
-  });
+  // THIS IS THE FUNCTION USED TO SEND A MASSEGE TO THE SERVER IN REQUEST BODY
+  // // $.ajax({
+  // //   url: SERVER_URL,
+  // //   contentType: 'application/json',
+  // //   type: 'POST',
+  // //   data: JSON.stringify({
+  // //     username: username,
+  // //     text: message
+  // //   }),
+  // //   success: function(data) {
+  // //     console.log('Success!', data);
+  // //   },
+  // //   error: function(data) {
+  // //     console.log(data);
+  //   }
+  // });
 };

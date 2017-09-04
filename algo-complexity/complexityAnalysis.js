@@ -4,3 +4,8 @@
 /*
 
 */
+1- constant complexity O(1)
+2- linear complexity O(n)
+3- dublicate/sequare complexity O(n*n)
+4- O(log(n))
+
