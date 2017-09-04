@@ -8,7 +8,7 @@
 // Problem 1: Retrieval of a value from a hash table using the following function with regard to the size of the hash table. knowing that the key never get very large
 
 /*
- Complexity:
+ Complexity: This function has [n complexity], because [for loop] means [iteration depends on key array size]
  */
 
 var retrieve = function(key) {
@@ -18,12 +18,13 @@ var retrieve = function(key) {
   }
   return array[hash];
 };
+/**/
 
 
 // Problem 2: sortedArrayContainsItem with regard to the length of the passed-in array
 
 /*
- Complexity:
+ Complexity: This function has [log(n) complexity], because [recursion] means [repeation depends on array size]
  */
 
 
@@ -40,7 +41,7 @@ var sortedArrayContainsItem = function(array, item) {
 // Problem 3: hasDuplicates with regard to the length of the passed in array
 
 /*
- Complexity:
+ Complexity: This function has [n complexity], because [for loop] means [iteration depends on key array size]
  */
 
 var hasDuplicates = function(array) {

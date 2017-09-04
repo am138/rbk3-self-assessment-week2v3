@@ -39,3 +39,19 @@ var makeSmartPhone = function(phoneNumber, email) {
 };
 
 // your code is here
+var makePhone = function(phoneNumber) {
+  this.phoneNumber = phoneNumber;
+};
+
+makePhone.prototype.send = function(recipientPhoneNumber, message) {
+    return 'sending the message "' + message + '" to the phone number ' + recipientPhoneNumber + ' from ' + this.phoneNumber;
+  };
+
+var makeSmartPhone = function(phoneNumber, email){
+  makePhone.call(this)
+  this.email = email;
+}
+
+makeSmartPhone.prototype= Object.create(makePhone.prototype)
+
+makeSmartPhone.prototype.costructor = makeSmartPhone;
